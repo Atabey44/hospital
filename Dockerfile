@@ -11,4 +11,4 @@ RUN ./mvnw package
 FROM openjdk:17-jdk-alpine
 WORKDIR app
 COPY --from=build target/*.jar hospital-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar","hospital-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=docker","hospital-0.0.1-SNAPSHOT.jar"]
